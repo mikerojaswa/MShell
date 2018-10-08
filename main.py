@@ -17,7 +17,7 @@ import sys
 import os
 import time
 
-commands = ['cd', 'exit']
+commands = ['cd', 'exit', 'ls']
 CURRENTDIRECTORY = ""
 
 
@@ -26,7 +26,7 @@ CURRENTDIRECTORY = ""
 def shell_loop():
     status = True
     while True and status:
-        line = input('🔥 ' + CURRENTDIRECTORY)
+        line = input('🔥  ' + CURRENTDIRECTORY)
         args = tokenize(line)
         # Case 1: We are executing a built in command ie: cd
         # Case 2: We are starting a program so call fork()
@@ -54,6 +54,8 @@ def built_in_commands(args):
         change_directories(args)
     if args[0] == 'exit':
         return False
+    if args[0] == 'ls':
+        print(os.getcwd())
     return True
     
 def change_directories(args):
