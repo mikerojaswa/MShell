@@ -45,7 +45,6 @@ def fork(args):
     elif child_pid < 0:
         print("Fork error.")
     else:
-        print("Im a parent.")
         pid, status = os.waitpid(child_pid, 0)
         print("Waiting done ", pid, " ", status)
 
@@ -70,6 +69,3 @@ def change_directories(args):
 
 # Main
 shell_loop()
-
-
-#/Users/michael/Code/TEST
